@@ -41,7 +41,7 @@ void	ft_sort_classic(t_sort_info *info)
 	ft_is_sorted_bis(info->lst_b, 'b', info);
 }
 
-int		ft_sort_nico_for_a_pc_0(t_sort_info *info)
+int		ft_sort_small(t_sort_info *info)
 {
 	int	flag;
 

@@ -64,7 +64,7 @@ int		ft_rec_sort(t_sort_info *info)
 		return (1);
 	ft_fill_info(info);
 	if (info->first_size <= 8 && info->pivot_count == 0)
-		ft_sort_nico_for_a_pc_0(info);
+		ft_sort_small(info);
 	else
 	{
 		ft_quicksort(info);

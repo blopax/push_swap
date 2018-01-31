@@ -111,7 +111,6 @@ void				ft_rotate_down_i(t_nb_lst *lst,
 int					ft_count_nb_lst(t_nb_lst *lst);
 int					ft_max(int a, int b);
 int					ft_min(int a, int b);
-int					ft_quicksort_nico(t_sort_info *info);
 void				ft_quicksort(t_sort_info *info);
 void				ft_swap_if_a(t_nb_lst *lst, t_nb_lst *lst_a,
 					t_sort_info *info);
@@ -124,13 +123,12 @@ void				ft_set_index(t_nb_lst *lst);
 int					ft_get_med_pos(t_nb_lst *lst);
 int					ft_find_med(t_nb_lst *lst);
 void				ft_redefine(t_sort_info *info);
-int					ft_sort_nic(t_nb_lst *lst_a, t_nb_lst *lst_b);
 void				ft_show_lst_a(t_nb_lst *lst, int c);
 void				ft_show_lst_b(t_nb_lst *lst, int c);
 void				ft_show_lst_op(t_lst *lst);
 void				ft_show_lst_op_c(t_lst *lst);
 void				ft_sort_index(t_sort_info *info);
-int					ft_sort_nico_for_a_pc_0(t_sort_info *info);
+int					ft_sort_small(t_sort_info *info);
 int					ft_check_true_sort(t_nb_lst *tmp,
 					t_nb_lst *lst, t_nb_lst *lst_a);
 t_nb_lst			*get_last_sorted_elem(t_nb_lst *lst, t_nb_lst *lst_a);
