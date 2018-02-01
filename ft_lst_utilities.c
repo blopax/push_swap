@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lst_utilities.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvergnac <nvergnac@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/25 17:39:56 by nvergnac          #+#    #+#             */
-/*   Updated: 2018/01/31 15:50:45 by nvergnac         ###   ########.fr       */
+/*   Created: 2018/02/01 17:47:40 by pclement          #+#    #+#             */
+/*   Updated: 2018/02/01 17:47:43 by pclement         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int			ft_count_nb_lst_op(t_lst *lst)
 	i = 0;
 	while (lst)
 	{
-		i++;
+		if (lst->op != 0)
+			i++;
 		lst = lst->next;
 	}
 	return (i);
