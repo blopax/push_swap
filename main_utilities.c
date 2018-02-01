@@ -6,7 +6,7 @@
 /*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/01 14:43:12 by pclement          #+#    #+#             */
-/*   Updated: 2018/02/01 14:43:13 by pclement         ###   ########.fr       */
+/*   Updated: 2018/02/01 17:02:45 by pclement         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	ft_get_arg(char *arg, t_sort_info *info)
 	while (size >= 0)
 	{
 		ft_check_error(argv[size]);
-		ft_add_nb_lst(LSTA, ft_atoi(argv[size]));
+		ft_add_nb_lst(LSTA, ft_atoi_ps(argv[size]));
 		size--;
 	}
 	size = 0;
