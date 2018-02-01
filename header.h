@@ -6,7 +6,7 @@
 /*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/01 14:42:45 by pclement          #+#    #+#             */
-/*   Updated: 2018/02/01 15:16:33 by pclement         ###   ########.fr       */
+/*   Updated: 2018/02/01 17:11:35 by pclement         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,5 +159,6 @@ void				ft_usage(char *str);
 void				ft_error(void);
 int					ft_check_double(t_nb_lst *lst);
 int					ft_check_value(int *tab, int size);
+int					ft_atoi_ps(const char *str);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: pclement <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/01 14:43:24 by pclement          #+#    #+#              #
-#    Updated: 2018/02/01 15:11:16 by pclement         ###   ########.fr        #
+#    Updated: 2018/02/01 17:11:02 by pclement         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC_CHECKER = ft_do_op.c ft_op.c ft_safe_free.c get_next_line.c\
 			  ft_checker.c ft_is_sorted.c ft_create_lst_push_swap.c\
 			  ft_is_sorted_bis.c ft_push_utilities.c ft_lst_utilities.c\
 			  main_utilities.c ft_op_utilities.c ft_check_doublons.c\
-			  ft_med_utilities.c
+			  ft_med_utilities.c ft_atoi_ps.c
 
 SRC_PUSH_SWAP = ft_op.c ft_quicksort.c ft_is_sorted.c ft_is_sorted_bis.c\
 				ft_opti_op_lst_bis.c ft_opti_op_lst.c ft_create_lst_push_swap.c\
@@ -27,7 +27,7 @@ SRC_PUSH_SWAP = ft_op.c ft_quicksort.c ft_is_sorted.c ft_is_sorted_bis.c\
 				ft_quicksort_rotate.c ft_quicksort_swap_utilities.c\
 				ft_lst_utilities.c ft_med_utilities.c\
 				ft_min_max.c ft_sort_utilities.c ft_safe_free.c\
-				ft_check_doublons.c
+				ft_check_doublons.c ft_atoi_ps.c
 
 OBJ_CHECKER = $(SRC_CHECKER:.c=.o)
 OBJ_PUSH_SWAP = $(SRC_PUSH_SWAP:.c=.o)
