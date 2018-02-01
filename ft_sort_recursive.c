@@ -6,7 +6,7 @@
 /*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 16:51:02 by pclement          #+#    #+#             */
-/*   Updated: 2018/02/01 14:41:39 by pclement         ###   ########.fr       */
+/*   Updated: 2018/02/01 21:12:07 by pclement         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,41 @@ void	ft_fill_info(t_sort_info *info)
 	info->first_size = ft_count_nb_lst(info->first);
 }
 
+void	ft_sort_3_a(t_sort_info *info)
+{
+	int	a;
+	int	b;
+	int	c;
+
+	a = info->lst_a->nb;
+	b = info->lst_a->next->nb;
+	c = info->lst_a->next->next->nb;
+	if (a < b && b < c)
+	{
+		ft_rotate_up(info->lst_a, info->lst_a, 1, info);
+		ft_swap(info->lst_a, info->lst_a, 1, info);
+	}
+	if (a < c && c < b)
+		ft_rotate_down(info->lst_a, info->lst_a, 1, info);
+	if (b < c && c < a)
+		ft_swap(info->lst_a, info->lst_a, 1, info);
+	if (b < a && a < c)
+		ft_rotate_up(info->lst_a, info->lst_a, 1, info);
+	if (c < a && a < b)
+	{
+		ft_swap(info->lst_a, info->lst_a, 1, info);
+		ft_rotate_up(info->lst_a, info->lst_a, 1, info);
+	}
+}
+
 int		ft_rec_sort(t_sort_info *info)
 {
 	if (ft_is_sorted(info->lst_a, info->lst_a) && info->lst_b == 0)
 		return (1);
 	ft_fill_info(info);
-	if (info->first_size <= 8 && info->pivot_count == 0)
+	if (info->first_size <= 3 && info->pivot_count == 0)
+		ft_sort_3_a(info);
+	else if (info->first_size <= 8 && info->pivot_count == 0)
 		ft_sort_small(info);
 	else
 	{
