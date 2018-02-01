@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvergnac <nvergnac@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/04 18:25:24 by nvergnac          #+#    #+#             */
-/*   Updated: 2018/01/31 15:37:08 by nvergnac         ###   ########.fr       */
+/*   Created: 2018/02/01 14:42:45 by pclement          #+#    #+#             */
+/*   Updated: 2018/02/01 15:16:33 by pclement         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define HEADER_H
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 # include "get_next_line.h"
 # include "libft/libft.h"
 # define LSTA info->lst_a
@@ -157,5 +156,8 @@ int					ft_check_piv_val(t_nb_lst *lst, int piv_val, char c);
 void				ft_rotate_back(t_sort_info *info, int piv,
 					int count_0, int count_1);
 void				ft_usage(char *str);
+void				ft_error(void);
+int					ft_check_double(t_nb_lst *lst);
+int					ft_check_value(int *tab, int size);
 
 #endif

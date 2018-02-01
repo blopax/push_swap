@@ -1,65 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_med_utilities.c                                 :+:      :+:    :+:   */
+/*   ft_check_doublons.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/01 14:38:09 by pclement          #+#    #+#             */
-/*   Updated: 2018/02/01 14:38:10 by pclement         ###   ########.fr       */
+/*   Created: 2018/02/01 15:13:15 by pclement          #+#    #+#             */
+/*   Updated: 2018/02/01 15:13:18 by pclement         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int		*ft_sort_tab(int *tab, int size)
+int		ft_check_value(int *tab, int size)
 {
-	int min;
-	int i;
-	int j;
-
-	i = 0;
-	while (i < size)
+	while (size - 1 > 0)
 	{
-		j = i;
-		min = tab[i];
-		while (j < size)
-		{
-			if (tab[j] < min)
-			{
-				tab[i] = tab[j];
-				tab[j] = min;
-				min = tab[i];
-			}
-			j++;
-		}
-		i++;
+		if (tab[size - 1] == tab[size - 2])
+			return (1);
+		size--;
 	}
-	return (tab);
+	return (0);
 }
 
-int		ft_get_med_value(int *tab, int pos)
-{
-	return (tab[pos - 1]);
-}
-
-int		ft_get_med_pos(t_nb_lst *lst)
-{
-	return ((ft_count_nb_lst(lst) + 1) / 2);
-}
-
-int		ft_find_med(t_nb_lst *lst)
+int		ft_check_double(t_nb_lst *lst)
 {
 	int			size;
 	int			*tab;
-	int			pos_med;
-	int			med;
 	t_nb_lst	*tmp;
+	int			error;
 
+	error = 0;
 	tmp = lst;
 	size = ft_count_nb_lst(lst);
 	if (size == 1)
-		return (lst->nb);
+		return (0);
 	if (!(tab = (int *)malloc(sizeof(int) * size)))
 		exit(0);
 	while (size > 0)
@@ -70,8 +45,13 @@ int		ft_find_med(t_nb_lst *lst)
 		size--;
 	}
 	tab = ft_sort_tab(tab, ft_count_nb_lst(lst));
-	pos_med = ft_get_med_pos(lst);
-	med = ft_get_med_value(tab, pos_med);
+	error = ft_check_value(tab, ft_count_nb_lst(lst));
 	free(tab);
-	return (med);
+	return (error);
+}
+
+void	ft_error(void)
+{
+	ft_putstr("Error\n");
+	exit(0);
 }

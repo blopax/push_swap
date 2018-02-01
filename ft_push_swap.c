@@ -3,16 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvergnac <nvergnac@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:27:07 by nvergnac          #+#    #+#             */
-/*   Updated: 2018/01/30 19:58:15 by nvergnac         ###   ########.fr       */
+/*   Created: 2018/02/01 15:14:23 by pclement          #+#    #+#             */
+/*   Updated: 2018/02/01 15:14:25 by pclement         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int				main(int argc, char **argv)
+void	ft_sort_process(t_sort_info *info)
+{
+	info->first_size_swap_lim = 10;
+	ft_rec_sort(info);
+	ft_opti_op_lst(info->op_lst);
+	ft_opti_op_lst_2(info->op_lst);
+	if (info->last_op_red >= 1)
+		ft_show_lst_op_c(info->op_lst);
+	else
+		ft_show_lst_op(info->op_lst);
+	ft_free_all(info);
+}
+
+int		main(int argc, char **argv)
 {
 	t_sort_info	*info;
 	int			argc_limit;
@@ -27,14 +40,8 @@ int				main(int argc, char **argv)
 		ft_get_arg(argv[argc - 1], info);
 		argc--;
 	}
-	info->first_size_swap_lim = 10;
-	ft_rec_sort(info);
-	ft_opti_op_lst(info->op_lst);
-	ft_opti_op_lst_2(info->op_lst);
-	if (info->last_op_red >= 1)
-		ft_show_lst_op_c(info->op_lst);
-	else
-		ft_show_lst_op(info->op_lst);
-	ft_free_all(info);
+	if (ft_check_double(LSTA) == 1)
+		ft_error();
+	ft_sort_process(info);
 	return (0);
 }
