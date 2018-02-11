@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_op.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/01 14:39:22 by pclement          #+#    #+#             */
-/*   Updated: 2018/02/01 14:39:24 by pclement         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "header.h"
 
 t_nb_lst	*ft_last(t_nb_lst *first)
@@ -28,7 +16,6 @@ void		ft_swap(t_nb_lst *lst, t_nb_lst *lst_a, int s, t_sort_info *info)
 	t_nb_lst	*index;
 
 	index = lst;
-	tmp = *index;
 	if (ft_count_nb_lst(index) > 1)
 	{
 		while (index->next->next)

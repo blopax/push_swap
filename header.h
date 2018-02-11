@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/01 14:42:45 by pclement          #+#    #+#             */
-/*   Updated: 2018/02/01 21:12:08 by pclement         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef HEADER_H
 # define HEADER_H
 # include <stdlib.h>
@@ -66,6 +54,8 @@ typedef struct		s_sort_info
 	int				flag;
 }					t_sort_info;
 
+void				ft_error(void);
+int					ft_check_double(t_nb_lst *lst);
 void				ft_get_arg(char *arg, t_sort_info *info);
 int					ft_check_option(char **argv, int *lim, t_sort_info *info);
 int					ft_check_option_checker(char **argv, int *lim,
@@ -127,7 +117,7 @@ void				ft_show_lst_b(t_nb_lst *lst, int c);
 void				ft_show_lst_op(t_lst *lst);
 void				ft_show_lst_op_c(t_lst *lst);
 void				ft_sort_index(t_sort_info *info);
-int					ft_sort_small(t_sort_info *info);
+int					ft_sort_small_list(t_sort_info *info);
 int					ft_check_true_sort(t_nb_lst *tmp,
 					t_nb_lst *lst, t_nb_lst *lst_a);
 t_nb_lst			*get_last_sorted_elem(t_nb_lst *lst, t_nb_lst *lst_a);
@@ -156,9 +146,6 @@ int					ft_check_piv_val(t_nb_lst *lst, int piv_val, char c);
 void				ft_rotate_back(t_sort_info *info, int piv,
 					int count_0, int count_1);
 void				ft_usage(char *str);
-void				ft_error(void);
-int					ft_check_double(t_nb_lst *lst);
-int					ft_check_value(int *tab, int size);
 int					ft_atoi_ps(const char *str);
 
 #endif

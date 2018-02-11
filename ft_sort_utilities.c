@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_sort_utilities.c                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/01 14:41:54 by pclement          #+#    #+#             */
-/*   Updated: 2018/02/01 14:41:55 by pclement         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "header.h"
 
 void	ft_replace(t_lst *op_lst, char *op)
@@ -35,19 +23,30 @@ void	ft_sort_classic(t_sort_info *info)
 		ft_swap(LSTA, LSTA, 1, info);
 		ft_rotate_up(LSTA, LSTA, 1, info);
 	}
-	ft_is_sorted_bis(info->lst_a, 'a', info);
-	ft_push_1_to_2(&info->lst_a, &info->lst_b, 1, info);
-	ft_redefine(info);
-	ft_is_sorted_bis(info->lst_b, 'b', info);
+	if (ft_is_sorted_bis(info->lst_a, 'a', info) == 0)
+	{
+		ft_push_1_to_2(&info->lst_a, &info->lst_b, 1, info);
+		ft_redefine(info);
+		ft_is_sorted_bis(info->lst_b, 'b', info);
+	}
 }
 
-int		ft_sort_small(t_sort_info *info)
+void	ft_sort_worst_3(t_sort_info *info)
+{
+	if (ft_last(LSTA)->max == 1 && LSTA->min == 1 && ft_nb_lst(LSTA) == 3)
+	{
+		ft_swap(LSTA, LSTA, 1, info);
+		ft_rotate_down(LSTA, LSTA, 1, info);
+	}
+}
+
+int		ft_sort_small_list(t_sort_info *info)
 {
 	int	flag;
 
 	flag = 0;
 	ft_define_min_max(LSTA);
-	ft_find_med(info->lst_a);
+	ft_sort_worst_3(info);
 	if (ft_is_sorted_bis(info->lst_a, 'a', info) == 1 && !info->lst_b)
 		flag = 1;
 	while (flag == 0)

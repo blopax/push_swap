@@ -1,20 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_checker.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/01 15:13:36 by pclement          #+#    #+#             */
-/*   Updated: 2018/02/01 15:14:03 by pclement         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "header.h"
 
 void	ft_show_bonus_op_number(t_sort_info *info)
 {
-	if (ft_is_sorted(LSTA, LSTA) == 1)
+	if (ft_is_sorted(LSTA, LSTA) == 1 && LSTB == 0)
 	{
 		write(1, "OK\n", 3);
 		if (info->count_op == 1)
@@ -28,16 +16,24 @@ void	ft_show_bonus_op_number(t_sort_info *info)
 		write(1, "KO\n", 3);
 }
 
+void	ft_check_op_error(char *line)
+{
+	if (ft_strcmp(line, "pa") != 0 && ft_strcmp(line, "pb") != 0 &&
+			ft_strcmp(line, "sa") != 0 && ft_strcmp(line, "sb") != 0 &&
+			ft_strcmp(line, "ra") != 0 && ft_strcmp(line, "rb") != 0 &&
+			ft_strcmp(line, "rra") != 0 && ft_strcmp(line, "rrb") != 0 &&
+			ft_strcmp(line, "ss") != 0 && ft_strcmp(line, "rr") != 0 &&
+			ft_strcmp(line, "rrr") != 0)
+		ft_error();
+}
+
 void	ft_get_op(t_sort_info *info)
 {
 	char	*line;
 
 	while (get_next_line(0, &line))
 	{
-		if (ft_strcmp(line, "") == 0)
-			break ;
-		if (ft_strcmp(line, "Error") == 0)
-			ft_error();
+		ft_check_op_error(line);
 		ft_add_op_lst(info->op_lst, line);
 		ft_safe_free(line);
 	}
