@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_checker.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pclement <pclement@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/11 16:35:10 by pclement          #+#    #+#             */
-/*   Updated: 2018/02/11 16:35:12 by pclement         ###   ########.fr       */
+/*   Created: 2018/01/05 14:54:45 by pclement          #+#    #+#             */
+/*   Updated: 2018/03/06 15:35:20 by pclement         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ int		main(int argc, char **argv)
 	t_sort_info *info;
 	int			argc_limit;
 
-	if (argc == 1)
-		ft_usage("checker");
 	argc_limit = 1;
 	info = ft_init_info_struct();
 	ft_check_option_checker(argv, &argc_limit, info);
+	if (argc - argc_limit == 0)
+		ft_usage("checker");
 	while (argc > argc_limit)
 	{
 		ft_get_arg(argv[argc - 1], info);

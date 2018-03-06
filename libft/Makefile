@@ -1,17 +1,17 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile_libftprintf.a                             :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: pclement <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/12/20 16:13:50 by pclement          #+#    #+#              #
-#    Updated: 2018/01/05 17:16:59 by nvergnac         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = libft.a
-FLAGS = -Wall -Wextra -Werror -c
+
+#compiler
+CC = clang
+CFLAGS = -Werror -Wall -Wextra
+
+#flags for preprocessor
+CPPFLAGS = -I.
+
+#deps
+DEPENDENCIES = libft.h Makefile
+
+#srcs
+SRC_PATH =
 SRC = ft_strcat.c ft_strchr.c ft_strcpy.c ft_strncpy.c ft_strdup.c ft_strlen.c\
 	  ft_strncat.c ft_strlcat.c ft_strrchr.c ft_strstr.c ft_strnstr.c \
 	  ft_strcmp.c ft_strncmp.c ft_atoi.c ft_isalpha.c ft_isdigit.c ft_isalnum.c\
@@ -21,26 +21,38 @@ SRC = ft_strcat.c ft_strchr.c ft_strcpy.c ft_strncpy.c ft_strdup.c ft_strlen.c\
 	  ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c ft_strequ.c\
 	  ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c ft_strsplit.c\
 	  ft_itoa.c ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c\
-	  ft_putnbr_intmax.c\
+	  ft_putnbr_intmax.c ft_int_size.c\
 	  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c\
 	  ft_lstadd.c ft_lstdelone.c ft_lstdel.c ft_lstiter.c\
-	  ft_count_if.c ft_wstrlen.c ft_wstrnew.c\
+	  ft_count_if.c ft_wstrlen.c ft_wstrnew.c get_next_line.c\
 
-OBJ = $(SRC:.c=.o)
+#obj
+OBJ_PATH = obj/
+OBJ_NAME = $(SRC:.c=.o)
+OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
+
+#disable implicit rules
+.SUFFIXES:
+.PHONY: clean fclean all re lib_rule
 
 all: $(NAME)
 
-$(NAME): $(SRC) $(OBJ)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+$(NAME): $(OBJ)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
-$(%.o):
-	gcc $(FLAGS) %.c
+
+$(OBJ_PATH)%.o: %.c $(DEPENDENCIES)
+	@mkdir $(OBJ_PATH) 2> /dev/null || true
+	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
-	rm -f $(OBJ)
+	@$(RM) $(OBJ)
+	@$(RM) -R $(OBJ_PATH) 2> /dev/null || true
 
 fclean: clean
-	rm -f $(NAME)
+	@$(RM) $(NAME)
 
-re: fclean all
+re: 
+	@$(MAKE) fclean
+	@$(MAKE) all

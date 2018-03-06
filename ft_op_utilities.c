@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_op_utilities.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pclement <pclement@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/11 16:37:45 by pclement          #+#    #+#             */
-/*   Updated: 2018/02/11 16:37:47 by pclement         ###   ########.fr       */
+/*   Created: 2018/01/30 16:37:00 by pclement          #+#    #+#             */
+/*   Updated: 2018/03/06 15:35:41 by pclement         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_push_bis(int flag, int s, t_nb_lst **lst_2_ptr, t_sort_info *info)
 {
-	if (flag == 1)
+	if (flag > 1)
 	{
 		if (*lst_2_ptr == LSTA)
 			ft_last(LSTB)->prev->next = NULL;
@@ -23,7 +23,7 @@ void	ft_push_bis(int flag, int s, t_nb_lst **lst_2_ptr, t_sort_info *info)
 	}
 	else
 	{
-		if (*lst_2_ptr == LSTA)
+		if (flag == 1)
 			LSTB = NULL;
 		else
 			LSTA = NULL;

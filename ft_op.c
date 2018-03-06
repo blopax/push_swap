@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_op.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pclement <pclement@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/11 16:37:31 by pclement          #+#    #+#             */
-/*   Updated: 2018/02/11 16:37:33 by pclement         ###   ########.fr       */
+/*   Created: 2018/01/04 18:35:05 by pclement          #+#    #+#             */
+/*   Updated: 2018/03/06 15:35:20 by pclement         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,10 +113,12 @@ void		ft_push_1_to_2(t_nb_lst **lst_1_ptr, t_nb_lst **lst_2_ptr,
 	lst_1 = *lst_1_ptr;
 	lst_2 = *lst_2_ptr;
 	flag = 0;
+	if (*lst_1_ptr != LSTA)
+		flag = 1;
 	if (lst_1)
 	{
 		if (lst_1->next)
-			flag = 1;
+			flag += 10;
 		while (lst_1->next)
 			lst_1 = lst_1->next;
 		if (lst_2 == 0)

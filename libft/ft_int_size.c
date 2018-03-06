@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_int_size.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nvergnac <nvergnac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 15:25:18 by pclement          #+#    #+#             */
-/*   Updated: 2017/11/15 15:29:09 by pclement         ###   ########.fr       */
+/*   Created: 2018/02/13 19:02:01 by nvergnac          #+#    #+#             */
+/*   Updated: 2018/02/13 19:07:09 by nvergnac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-wchar_t			*ft_wstrnew(size_t size)
+int	ft_int_size(int nb)
 {
-	wchar_t		*str;
-	size_t		i;
+	int	i;
 
-	if (!(str = (wchar_t *)malloc(sizeof(wchar_t) * (size + 1))))
-		return (NULL);
-	i = 0;
-	while (i <= size)
+	if (nb == -2147483648)
+		return (11);
+	if (nb < 0)
+		nb = -nb;
+	i = 1;
+	while (nb >= 10)
 	{
-		str[i] = 0;
+		nb /= 10;
 		i++;
 	}
-	return (str);
+	return (i);
 }

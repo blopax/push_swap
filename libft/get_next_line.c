@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nvergnac <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/11 16:39:55 by pclement          #+#    #+#             */
-/*   Updated: 2018/02/11 16:39:56 by pclement         ###   ########.fr       */
+/*   Created: 2017/11/28 12:48:43 by nvergnac          #+#    #+#             */
+/*   Updated: 2018/01/30 21:02:40 by nvergnac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 size_t		ft_check(char *str)
 {

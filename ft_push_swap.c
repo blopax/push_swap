@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pclement <pclement@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/11 16:38:37 by pclement          #+#    #+#             */
-/*   Updated: 2018/02/11 16:38:39 by pclement         ###   ########.fr       */
+/*   Created: 2018/01/09 15:27:07 by pclement          #+#    #+#             */
+/*   Updated: 2018/03/06 15:35:21 by pclement         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_sort_process(t_sort_info *info)
 	info->first_size_swap_lim = 10;
 	ft_rec_sort(info);
 	ft_opti_op_lst(info->op_lst);
-	ft_opti_op_lst_2(info->op_lst);
 	if (info->last_op_red >= 1)
 		ft_show_lst_op_c(info->op_lst);
 	else

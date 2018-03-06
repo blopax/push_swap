@@ -6,7 +6,7 @@
 /*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 18:57:13 by pclement          #+#    #+#             */
-/*   Updated: 2018/01/03 15:27:10 by nvergnac         ###   ########.fr       */
+/*   Updated: 2018/02/14 14:49:34 by pclement         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <limits.h>
+# define BUFF_SIZE 1
 
 typedef struct		s_list
 {
@@ -24,7 +26,16 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct		s_gnl
+{
+	char			*tmp;
+	char			buf[BUFF_SIZE + 1];
+	int				ret;
+}					t_gnl;
+
+int					get_next_line(const int fd, char **line);
 size_t				ft_strlen(const char *s);
+int					ft_int_size(int nb);
 size_t				ft_wstrlen(const wchar_t *s);
 char				*ft_strdup(const char *s1);
 char				*ft_strcpy(char *dst, const char *src);

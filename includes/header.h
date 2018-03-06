@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pclement <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nvergnac <nvergnac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/11 16:40:24 by pclement          #+#    #+#             */
-/*   Updated: 2018/02/11 16:40:25 by pclement         ###   ########.fr       */
+/*   Created: 2018/01/04 18:25:24 by nvergnac          #+#    #+#             */
+/*   Updated: 2018/02/02 15:49:29 by nvergnac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 # define HEADER_H
 # include <stdlib.h>
 # include <unistd.h>
-# include "get_next_line.h"
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # define LSTA info->lst_a
 # define LSTB info->lst_b
 # define OP op_lst->op
@@ -112,6 +111,7 @@ void				ft_rotate_down_i(t_nb_lst *lst,
 int					ft_count_nb_lst(t_nb_lst *lst);
 int					ft_max(int a, int b);
 int					ft_min(int a, int b);
+int					ft_quicksort_nico(t_sort_info *info);
 void				ft_quicksort(t_sort_info *info);
 void				ft_swap_if_a(t_nb_lst *lst, t_nb_lst *lst_a,
 					t_sort_info *info);
@@ -124,6 +124,7 @@ void				ft_set_index(t_nb_lst *lst);
 int					ft_get_med_pos(t_nb_lst *lst);
 int					ft_find_med(t_nb_lst *lst);
 void				ft_redefine(t_sort_info *info);
+int					ft_sort_nic(t_nb_lst *lst_a, t_nb_lst *lst_b);
 void				ft_show_lst_a(t_nb_lst *lst, int c);
 void				ft_show_lst_b(t_nb_lst *lst, int c);
 void				ft_show_lst_op(t_lst *lst);
